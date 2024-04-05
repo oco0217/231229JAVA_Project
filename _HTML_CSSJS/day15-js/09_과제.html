@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set을 이용한 로또 만들기</title>
+</head>
+
+<body>
+    <h1>
+        1~45까지 중복되지 않게 6개를 랜덤으로 추출=> 출력
+        set 객체를 이용하여 생성
+    </h1>
+    <button type="button" id="myLottoCreate">랜덤번호 6자리 생성(출력)</button> <br>
+    <h1 id="myLottoPrint">로또번호 확인 </h1>
+    <button type="button" id="comLottoCreate">당첨번호 7자리(마지막번호는 보너스번호) 생성(출력)</button>
+    <h1 id="comLottoPrint">로또번호 확인</h1>
+    <button type="button" id="result">결과확인</button>
+    <h1 id="printResult">결과 확인</h1>
+
+    <script>
+
+        const myLotto = lottoCreate(6);
+        const comLotto = lottoCreate(7);
+        const arrMyLotto = arrayMachine(myLotto);
+        const arrcomLotto = arrayMachine(comLotto);
+        const bonusNumber = arrcomLotto.pop();
+        arrSort(arrMyLotto);
+        arrSort(arrcomLotto);
+
+        const myLottoPrint = document.getElementById('myLottoPrint');
+        const comLottoPrint = document.getElementById('comLottoPrint');
+        const printResult = document.getElementById('printResult');
+
+        document.getElementById('myLottoCreate').addEventListener('click', () => {
+            myLottoPrint.innerText = ``;
+            arrMyLotto.forEach(function (v, i) {
+                if (i == arrMyLotto.length - 1) {
+                    myLottoPrint.innerText += `${v}`;
+                } else {
+                    myLottoPrint.innerText += `${v},`;
+                }
+            });
+        });
+
+        document.getElementById('comLottoCreate').addEventListener('click', () => {
+            comLottoPrint.innerText = ``;
+            arrcomLotto.forEach(function (v, i) {
+                if (i == arrcomLotto.length - 1) {
+                    comLottoPrint.innerText += `${v}`;
+                } else {
+                    comLottoPrint.innerText += `${v},`;
+                }
+            });
+            comLottoPrint.innerText += ` [${bonusNumber}]`;
+        });
+
+        document.getElementById('result').addEventListener('click', () => {
+
+            let count = 0;
+
+            bonusNumberCount = 0;
+
+            arrMyLotto.forEach(function (v) {
+                if(bonusNumber == v){
+                    bonusNumberCount++;
+                }
+                arrcomLotto.forEach(function (k) {
+                    if (k == v) {
+                        count++;
+                    }
+                }) 
+            });
+            console.log(`보너스넘버 : ${bonusNumber}`);
+            console.log(`카운트 : ${count}`);
+            console.log(`보너스 카운트 : ${bonusNumberCount}`);
+
+            rankingPrint(count,bonusNumberCount);
+
+        });
+        function lottoCreate(setSize) {
+            let lottoMachine = new Set();
+            while (lottoMachine.size < setSize) {
+
+                lottoMachine.add(Math.floor(Math.random() * 45) + 1);
+
+            }
+            return lottoMachine;
+        }
+
+        //랭킹 나타내는 함수
+        function rankingPrint(count, bonusNumberCount){
+            if(count == 6){
+                printResult.innerText = `!!~축~!!  1등 당첨!!!!!!`;
+            }else if((count == 5) && (bonusNumberCount == 1)){
+                 printResult.innerText = `축~!!  2등당첨!`; 
+            }else if(count == 5){
+                printResult.innerText = `축 ~!!  3등당첨`;
+            }else if(count == 4){
+                printResult.innerText = `아쉽네요 ~!!  4등당첨`;
+            }else {
+                printResult.innerText = `꽝입니다...`;
+            }
+        }
+
+        //배열만드는 함수
+        function arrayMachine(setName) {
+            const arrMachine = new Array();
+            setName.forEach(function (v) {
+                arrMachine.push(v);
+            });
+            return arrMachine;
+        };
+
+
+        //정렬 함수
+        function arrSort(arr) {
+            arr.sort(function (a, b) {
+                return a - b;
+            });
+        }
+
+    </script>
+</body>
+
+</html>
+<!-- 
+    로또 번호채우는거는 function으로 별도로 채우기
+    등수 나타내는 것도 function으로 별도로 만들기 
+-->

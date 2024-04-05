@@ -1,0 +1,66 @@
+<!-- 높이 150 안에 상자 100x100,  밑에 500x500 안의 상자 100x100 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outbox1{
+            height: 150px;
+            background-color: antiquewhite;
+            position: relative;
+        }
+        .outbox1>div{
+            width: 100px;
+            height: 100px;
+            float: left;
+            position: absolute;
+            top: 25px;
+        }
+        .outbox1::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .inbox1{
+            background-color: aquamarine;
+            left: 25px;
+        }
+        .inbox2{
+            background-color: blueviolet;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .inbox3{
+            background-color: brown;
+            right: 25px;
+        }
+        .outbox2{
+            width: 500px;
+            height: 500px;
+            background-color: blueviolet;
+            position: relative;
+        }
+        .outbox2>.inbox{
+            width: 100px;
+            height: 100px;
+            background-color: blanchedalmond;
+            position: absolute;
+            top :50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="outbox1">
+        <div class="inbox1"></div>
+        <div class="inbox2"></div>
+        <div class="inbox3"></div>
+    </div>
+    <div class="outbox2">
+        <div class="inbox"></div>
+    </div>
+</body>
+</html>

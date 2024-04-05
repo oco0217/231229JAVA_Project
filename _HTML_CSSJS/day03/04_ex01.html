@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        div 3개를 만들어
+        naver.google, daum 사이트로 연결되게 하고,
+        - 새 창이 띄어지도록 연결
+        - 각각의 div 색을 달리하여 스타일주기
+        - 링크 색도 변경
+        
+        ul > li*10 1~10까지 표현
+        -짝수만 빨간색
+        -3,6,9 : 초록색
+        1,10 : 굵게 처리
+        뒤 요소에 .을 추가
+     -->
+
+     <style>
+        /* block 태그 : 넓이 높이를 가질 수 있음.*/
+        a{
+            border: 1px solid black;
+            width: 100px;
+            text-decoration: none;
+        }
+        .naver{
+            background-color: aquamarine;
+        }
+        .google{
+            background-color: #03c75a;
+        }
+        .daum{
+            background-color: darkmagenta;
+        }
+        div.naver a:link{
+            color: #03c75a;
+        }
+        div.google a:link{
+            color: rgb(41, 38, 223);
+        }
+        div.daum a:link{
+            color: blueviolet;
+        }
+        div.naver a:visited{
+            color: rgb(1, 90, 16);
+        }
+        div.google a:visited{
+            color: rgb(37, 140, 224);
+        }
+        div.daum a:visited{
+            color: rgb(36, 7, 63);
+        }
+        div.naver a:hover{
+            color: rgb(9, 99, 54);
+        }
+        div.google a:hover{
+            color: red;
+        }
+        div.daum a:hover{
+            color:yellow;
+        }
+        div.naver a:active{
+            color: wheat;
+        }
+        div.google a:active{
+            color: brown;
+        }
+        div.daum a:active{
+            color: hotpink;
+        }
+        ul>li:nth-of-type(2n){
+            color: red;
+        }
+        ul>li:nth-of-type(3n){
+            color:green;
+        }
+        ul>li:last-child , ul>li:last-child{
+            font-weight: 700;
+        }
+        ul{
+            padding-left: 0;
+        }
+        ul>li{
+            list-style: none;
+            display: inline;
+        }
+        ul>li::after{
+            content: ". ";
+        }
+     </style>
+
+</head>
+
+<body>
+    <div class="naver"><a href="http://www.naver.com" target="_blank">네이버</a></div>
+    <div class="google"><a href="http://www.google.com" target="_blank">구글</a></div>
+    <div class="daum"><a href="http://www.daum.net" target="_blank">다음</a></div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+</body>
+
+</html>

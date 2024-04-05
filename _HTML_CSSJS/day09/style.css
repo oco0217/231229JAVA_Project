@@ -1,0 +1,373 @@
+@import url(../day08/reset.css);
+body{
+    position: relative;
+    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+        .util{
+            height: 50px;
+            position: relative;
+        }
+        .first-container{
+            width: 70%;
+            height: 50px;
+            margin: auto 0;
+            display: flex;
+            justify-content: end;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .first-container>a{
+            margin: 30px 5px 50px ;
+            color: gray;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .first-container>.login{
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 17px;
+            color: rgb(87, 85, 85);
+        }
+        header>img{
+            position: absolute;
+            left: 200px;
+            top: 40px;
+        }
+        header>.container2{
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            line-height: 75px;
+        }
+        header>.container2>ul{
+            display: flex;
+            justify-content: center;
+        }
+        .container2>ul>li{
+            padding: 0 25px 5px 25px;
+        }
+        .container2>ul>li>a{
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        section>.slide{
+            margin-top: 50px;
+            height: 620px;
+            background-image: url(img/슬라이드그림.jpg);
+            background-size: cover;
+            position: relative;
+        }
+        section>.slide>.right{
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        section>.slide>.left{
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .mainTodayArea{
+            height: 85px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainTodayArea>.container{
+            height: 80px;
+            display: flex;
+            text-align: center;
+            line-height: 85px;
+        }
+        .mainTodayArea>.container>.clock{
+            line-height: 100px;
+
+        }
+        .mainTodayArea>.container>p{
+            margin: 0 20px;
+        }
+        .mainTodayArea>.container>.big{
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .mainTodayArea>.container>.nomal{
+            font-size: 20px;
+        }
+        main>.exhibition{
+            height: 800px;
+            border: 1px solid transparent;
+            background-image: url(img/백그라운드이미지.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        main>.exhibition>p{
+            text-align: center;
+            color: white;
+            font-family: 700;
+        }
+        main>.exhibition>p:first-child{
+            margin-top: 100px;
+            font-size: 40px;
+        }
+        main>.exhibition>p:nth-child(2){
+            margin : 50px 0 70px 0;
+            font-size: 25px;
+        }
+
+        main>.exhibition>ul{
+            display: flex;
+            justify-content: center;
+        }
+        .exhibition>ul>li{
+            margin: 0 20px 0 20px;
+            border: 2px solid transparent;
+        }
+        .exhibition>ul>li>a>.img{
+            width: 525px;
+            height: 370px;
+        }
+        .exhibition>ul>li>a>.img>img{
+            width: 525px;
+            height: 370px;
+        }
+        .exhibition>ul>li>a>.textArea{
+            width: 525px;
+            height: 70px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 23px;
+            font-weight: 700;
+            color: white;
+        }
+        .exhibition>ul>li:hover{
+            border: 2px solid white;
+            transition: 0.5s;
+        }
+
+        .main-con2{
+            height: 700px;
+            background-image: url(img/메인2백그라운드.jpg);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+        .main-con2>p:first-child{
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 35px;
+            font-weight: 500;
+        }
+        .main-con2>p:nth-child(2){
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: gray;
+        }
+        .main-con2>ul{
+            position: absolute;
+            display: flex;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .main-con2>ul>li{
+            align-items: center;
+            margin: 0 10px 0px 10px;
+            width: 375px;
+            height: calc(246px+70px);
+            border: 1px solid black;
+        }
+        .main-con2>ul>li>.img{
+            width: 375px;
+            height: 246px;
+            box-sizing: border-box;
+        }
+        .main-con2>ul>li>a>.textArea{
+            width: 375px;
+            height: 70px;
+            background-color: white;
+           line-height: 70px;
+           color: black;
+           font-weight: 700;
+           font-size: 25px;
+        }
+        .main-con2>ul>li>a>.textArea:hover{
+            background-color: limegreen;
+        }
+        .main-con3{
+            border-bottom: 1px solid gray;
+        }
+        .main-con3>.inner{
+            text-align: center;
+        }
+        .main-con3>.inner>p:first-child{
+            font-size: 35px;
+            margin-top: 100px;
+            font-weight: 350;
+        }
+        .main-con3>.inner>p:last-child{
+            color: gray;
+            margin-top: 40px;
+            font-weight: 700;
+        }
+        .main-con3>.mainNews{
+            width: 85%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            margin: 50px auto 100px;
+        }
+        .main-con3>.mainNews>.left{
+            width: 40%;
+            border:1px solid rgb(211, 200, 200);
+            opacity: 0.75;
+            margin: 10px;
+        }
+        .main-con3>.mainNews>.right{
+            width: 40%;
+            margin: 10px;
+            position: relative;
+        }
+        .main-con3>.mainNews>.left>p:first-child{
+            font-size: 25px;
+            font-family: 700;
+            margin: 20px;
+        }
+        .main-con3>.mainNews>.left>.newsCon>a{
+            font-size: 17px;
+            color: black;
+            padding: 20px 20px 50px 20px;
+            font-weight: 700;
+            text-wrap: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .main-con3>.mainNews>.left>.newsCon>p{
+            opacity: 0.75;
+            margin: 70px 20px 20px 20px;
+            font-size: 15px;
+            color: rgb(7, 7, 7);
+            font-weight: 550;
+        }
+        .main-con3>.mainNews>.left>ul>li{
+            line-height: 35px;
+            margin: 20px;
+            text-wrap: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .main-con3>.mainNews>.left>ul>li>a{
+            color: black;
+            font-weight: 700;
+        }
+        .main-con3>.mainNews>.right>.utilDiv{
+            width: 100%;
+            height: 45%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-con3>.mainNews>.right>.utilDiv>a{
+            width: 45%;
+            height: 100%;
+            text-align: center;
+            line-height: 250px;
+            color: black;
+            font-weight: 700;
+            border: 1px solid rgb(213, 200, 200);
+        }
+        .main-con3>.mainNews>.right>.utilDiv>a:first-child{
+            background-image: url(img/이용문의.png);
+            background-position: 50% 30%;
+            background-repeat: no-repeat;
+        }
+        .main-con3>.mainNews>.right>.utilDiv>a:last-child{
+            background-image: url(img/오시는길.png);
+            background-position: 50% 30%;
+            background-repeat: no-repeat;
+        }
+        .main-con3>.mainNews>.right>.bannerDiv{
+            width: 100%;
+            height: 190px;
+            background-image: url(img/전통혼례바로가기.jpg);
+            background-size: 100% 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        .main-con3>.mainNews>.right>.bannerDiv>p{
+            color: white;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 40px;
+            margin: 10px 30px;
+        }
+        .main-con3>.mainNews>.right>.bannerDiv>a{
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 70px;
+            padding: 40px 100px;
+        }
+        footer>.container{
+            margin: 0 15%;
+        }
+        footer>.container>.top{
+            margin: 50px 0 40px 0;
+        }
+        footer>.container>.top>.links>ul{
+            display: flex;
+        }
+    footer>.container>.top>.links>ul>li{
+        margin-right: 15px;
+    }
+    footer>.container>.top>.links>ul>li>a{
+        color: gray;
+        font-weight: bold;
+        font-size: 15px;
+        opacity: 0.85;
+    }
+    footer>.container>.top>.links>ul>li>.red{
+        color: red;
+        font-weight: bold;
+        font-size: 15px;
+        opacity: 0.55;
+    }
+    footer>.container>.bottom{
+        margin-bottom: 200px;
+        border-top:1px solid gray;
+        opacity: 0.85;
+        display: flex;
+        justify-content: space-between;
+    }
+    footer a, footer span, footer p{
+        color: rgb(112, 107, 107);
+        font-weight: bold;
+        font-size: 14px;
+        opacity: 0.95;
+        margin-right: 15px;
+    }
+    footer>.container>.bottom>.left {
+        margin-top: 30px;
+    }
+    footer p{
+        margin: 10px;
+    }
+    footer>.container>.bottom>.left>.copyright{
+        margin: 30px 9px;
+    }
+    footer>.container>.bottom>.familySite{
+        margin-top: 30px;
+    }
+    
+        
+
+
+        

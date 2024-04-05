@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            width: 100px;
+            height: 100px;
+            font-size: 25px;
+            font-weight: 700;
+            text-align: center;
+            border: none;
+            margin: 3px auto;
+            border-radius: 5px;
+            color: white;
+        }
+        button:hover{
+            box-shadow: 3px 3px 3px 3px rgb(71, 51, 13);
+        }
+
+        button:not(op) {
+            background-color: gray;
+        }
+
+        .op {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+" class="op">+</button>
+            <button type="button" value="C" class="op">C</button> <br>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-" class="op">-</button> <br>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*" class="op">*</button> <br>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=" class="op">=</button>
+            <button type="button" value="/" class="op">/</button>
+        </div>
+        <h1 id="resultPrint"></h1>
+    </div>
+    <script>
+
+        let str = ``;
+
+        let firstNum = 0;
+
+        let secondNum = 0;
+
+        let result = 0;
+
+        document.querySelector('.container').addEventListener('click', (e) => {
+
+            if(e.target.value == undefined || e.target.value == NaN){ //버튼말고 다른거 눌렀을경우 오류안뜨게
+                return;
+            }
+
+            if(str.match(/(\+ | \- | \* | \/ )/)){
+                str = str.substring(0,str.indexOf(" "));
+                str += ` ${e.target.value} `;
+                return;
+            }  
+                        
+            if (operatorCheck(e.target.value)) { //연산자라면은 좌우로 한칸씩 띄어주기
+                str += ` ${e.target.value} `;
+                
+            } else {
+                str += e.target.value;
+            }
+            
+
+            operatorCalc(e.target.value);
+
+            calcValuePrint(e);
+
+        });
+
+        function operatorCheck(op) {
+
+            if (op == '+' || op == '-' || op == '*' || op == '/') {  //연산자이면 true
+                return true;
+            }
+            return false;
+        }
+
+        function operatorCalc(op) {
+            if (op == 'C') {  //c 눌렀을때 숫자 빼기
+                console.log(`check`);
+                str = '';
+                return;
+            }
+
+            if (op == '=') {
+                firstNum = Number(str.substring(0, str.indexOf(" ")));
+                secondNum = Number(str.substring(str.lastIndexOf(" ") + 1, str.lastIndexOf('=')));
+
+                let shape = str.substr(str.indexOf(" ") + 1, 1);
+                console.log(shape);
+
+                switch (shape) {
+                    case '+':
+                        result = firstNum + secondNum;
+                        break;
+                    case '-':
+                        result = firstNum - secondNum;
+                        break;
+                    case '*':
+                        result = firstNum * secondNum;
+                        break;
+                    case '/':
+                        result = firstNum / secondNum;
+                        break;
+                }
+                document.getElementById('resultPrint').innerText = result.toFixed(2);
+                str = result;
+            }
+        }
+
+        function calcValuePrint(e){  //계산결과 프린트
+            if(e.target.value == '='){
+                document.getElementById('resultPrint').innerText = result.toFixed(2);
+                str = result;
+            }else{
+                document.getElementById('resultPrint').innerText = str;
+            }
+        }
+
+        //만약 다른 연산값이 있으면 앞에 연산 제거후 새거 입력
+        function operatorDup(){
+            if(str.match(str.match(/([^0-9])/))){
+                return true;
+            }        
+            return false;
+        }
+    </script>
+</body>
+
+</html>

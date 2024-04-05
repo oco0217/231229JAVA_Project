@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class 객체 생성 / 일반 객체 
+        //일반 객체
+        let myAccount = {
+            name : 'hong',
+            balance : 0,
+            //입금
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            //출금
+            withraw : function(amount){
+                this.balance -= amount;
+            },
+            //이체
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        let yourAccount = {
+            name : 'kim',
+            balance : 10000,
+            //입금
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            //출금
+            withraw : function(amount){
+                this.balance -= amount;
+            },
+            //이체
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+        //내 계좌에 입금 10000원
+
+        console.log(myAccount.name +` : `+ myAccount.balance);
+        myAccount.deposit(10000);
+        console.log(myAccount.name +` : `+ myAccount.balance);
+        myAccount.withraw(3000);
+        console.log(myAccount.name +` : `+ myAccount.balance);
+        console.log(yourAccount.name +` : `+ yourAccount.balance);
+        myAccount.transfer(5000,yourAccount);
+        console.log(myAccount.name +` : `+ myAccount.balance);
+        console.log(yourAccount.name +` : `+ yourAccount.balance);
+
+        console.log(`------------------`);
+
+        //class로 변경
+        class Account{
+            constructor(name,balance){
+                this.name = name;
+                this.balance = balance;
+            }
+
+            deposit (amount){this.balance += amount } //입금
+            
+            withraw(amount){this.balance -= amount} //출금
+
+            transfer(amount, otherAccount){ //계좌이체
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        GildongAccount = new Account('Gildong',0);
+        sunsinAccount = new Account('sunsin',50000);
+
+        console.log(GildongAccount.name + ` : ` + GildongAccount.balance);
+        GildongAccount.deposit(30000);
+        console.log(GildongAccount.name + ` : ` + GildongAccount.balance);
+        GildongAccount.withraw(3000);
+        console.log(GildongAccount.name + ` : ` + GildongAccount.balance);
+        console.log(sunsinAccount.name + ` : ` + sunsinAccount.balance);
+        GildongAccount.transfer(20000,sunsinAccount);
+        console.log(GildongAccount.name + ` : ` + GildongAccount.balance);
+        console.log(sunsinAccount.name + ` : ` + sunsinAccount.balance);
+        
+    </script>
+</body>
+</html>

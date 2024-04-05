@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: Luckiest Guy;
+            src: url(/font/Luckiest_Guy/LuckiestGuy-Regular.ttf);
+        }
+        @font-face {
+             font-family: Workbench; 
+             src: url(../font/Luckiest_GuyWorkbench/Workbench-Regular-VariableFont_BLED\,SCAN.ttf);
+        }
+        .header {
+            width: 100%;
+            text-align: center;
+        }
+        .header h1{
+            
+            font-size: 70px;
+            font-weight: 700;
+            margin-top: 100px;
+            font-family: Luckiest Guy;
+        }
+        .header p{
+            font-size: 25px;
+            margin: 100px 0;
+            font-weight: 700;
+        }
+
+        .section {
+            display: flex;
+            justify-content: space-evenly;
+            width: 70%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .section h1{
+            font-family: Workbench;
+            font-size: 35px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="section"></div>
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            .then(resp => resp.json())
+            .then(result => printData(result))
+        // .catch(err => console.log('실패'));
+
+        function printData(obj) {
+            //헤더부분
+            console.log(obj);
+            let header = document.querySelector('.header');
+            header.innerHTML = `<h1>${obj.squadName}</h1>`;
+            header.innerHTML +=
+                `<p>HomeTown : ${obj.homeTown} // Formed : ${obj.formed}</p>`;
+
+
+
+            //섹션부분
+            let section = document.querySelector('.section');
+
+            let str = '';
+
+            for (let i = 0; i < obj.members.length; i++) {
+                str += `<div>`;
+                str += `<h1>${obj.members[i].name}</h1>`;
+                str += `<p>secretIdentity :  ${obj.members[i].secretIdentity}</p>`;
+                str += `<p>Age :  ${obj.members[i].age}</p>`;
+                str += `<p>Superpowers : </p><ul>`;
+
+                for (let j = 0; j < obj.members[i].powers.length; j++) {
+                    console.log(obj.members[i].powers[j]);
+                    str += `<li>${obj.members[i].powers[j]}</li>`;
+                }
+                str += `</div></ul>`;
+                
+            }
+            section.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

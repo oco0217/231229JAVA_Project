@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"> <br>
+    주민번호 <input type="text" id="idNumber">
+    <button type="button" id="btn">확인</button>
+
+    <h1 id="print"></h1>
+
+    <script>
+        
+        document.getElementById('btn').addEventListener('click', () =>{
+            
+            let print = document.getElementById('print');
+
+            let name = document.getElementById('name').value;
+            
+            let idNumber = document.getElementById('idNumber').value;
+
+            let birth = idNumber.substring(0,idNumber.indexOf('-'));
+
+            let genderCheck =  idNumber.substr(idNumber.indexOf("-")+1,1);
+
+            let gender = genderCheck === '1' || genderCheck === '3' ? '남자'  : '여자';
+
+            let ageCheck = parseInt(birth.substring(0,2));
+
+            let age;
+
+            currentYear = new Date().getFullYear();
+
+            if(genderCheck <= 2 ){
+                age = currentYear - (1900 + ageCheck);
+            }else{
+                age = currentYear - (2000 + ageCheck);
+            }
+
+            print.innerText = 
+        `이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${gender}`
+
+
+        }); 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+        #title{
+            font-size: 50px;
+            font-weight: 700;
+            margin-top: 50px;
+        }
+        #subTitle{
+            font-size: 25px;
+            font-weight: 700;
+            margin : 150px 0;
+        }
+        .hero{
+            display: flex;
+            justify-content: space-evenly;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">제목</h1>
+        <p id="subTitle">부제목</p>
+        <div class="hero">
+            <div>
+                <h1 id="heroName1"></h1>
+                <p id="secret1"></p>
+                <p id="age1"></p>
+                <ul id="Superpowers1"></ul>
+            </div>
+            <div>
+                <h1 id="heroName2"></h1>
+                <p id="secret2"></p>
+                <p id="age2"></p>
+                <ul id="Superpowers2"></ul>
+            </div>
+            <div>
+                <h1 id="heroName3"></h1>
+                <p id="secret3"></p>
+                <p id="age3"></p>
+                <ul id="Superpowers3"></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => printData(result))
+        .catch(err => console.log('실패'));
+
+        function printData(obj){
+            console.log(obj);
+            document.getElementById('title').innerHTML = obj.squadName;
+            document.getElementById('subTitle').innerHTML = 
+            `HomeTown : ${obj.homeTown} // Formed : ${obj.formed}`;
+
+
+            for(let i=0; i<obj.members.length; i++){
+                // console.log(obj.members[i]);
+                document.getElementById(`heroName${i+1}`).innerHTML = obj.members[i].name;
+                document.getElementById(`secret${i+1}`).innerHTML = `secretIdentity :  ${obj.members[i].secretIdentity}`;
+                document.getElementById(`age${i+1}`).innerHTML = `age :  ${obj.members[i].age} <br>Superpowers :`;
+
+                for(let j=0; j<obj.members[i].powers.length; j++){
+                    console.log(obj.members[i].powers[j]);
+                    document.getElementById(`Superpowers${i+1}`).innerHTML += `<li>${obj.members[i].powers[j]}</li>`
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+               @font-face{
+            font-family: jua;
+            src: url(../font/Jua/Jua-Regular.ttf);
+               }
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(161, 236, 236);
+        }
+        div {
+            width: 100%;
+            border-radius: 2px;
+        }
+
+        .header {
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-weight: 700;
+            font-size: 30px;
+            font-family: jua;
+            background-image: url(../image/header.jpg);
+            background-size: 100% 100%;
+        }
+
+        .main-image {
+            height: 400px;
+            background-image: url(../image/바다.jpeg);
+            background-size: 100% 100%;
+        }
+
+        .subject {
+            height: 300px;
+        }
+        .sub-img1 {
+            height: 400px;
+            background-image: url(../image/물고기.jpg);
+            background-size: 100% 100%;
+        }
+
+        .sub-img2 {
+            height: 400px;
+            background-image: url(../image/돌고래.jpg);
+            background-size: 100% 100%;
+        }
+
+        .sub-img3 {
+            height: 300px;
+            background-image: url(../image/니모.jpg);
+            background-size: 100% 100%;
+            text-align: center;
+            position: relative;
+
+        }
+
+        .sub-img3>a {
+            width: 200px;
+            height: 40px;
+            border: 5px solid white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 700;
+            text-decoration: none;
+            line-height: 40px;
+            font-size: 18px;
+            color: aliceblue;
+        }
+        .footer{
+            height: 20px;
+        }
+        .footer>p{            
+            font-weight: 700;
+            line-height: 20px;
+            font-family: jua;
+            color: gray;
+        }
+
+        @media screen and (min-width : 800px) {
+            .main-image {
+                height: 500px;
+                background-image: url(../image/바다.jpeg);
+                background-size: 100% 100%;
+            }
+
+            .subject {
+                height: 250px;
+            }
+
+            .sub-img1 {
+                width: 50%;
+                height: 500px;
+                background-size: 100% 100%;
+                float: left;
+            }
+
+            .sub-img2 {
+                width: 50%;
+                height: 250px;
+                background-size: 100% 100%;
+                float: left;
+            }
+
+            .sub-img3 {
+                width: 50%;
+                height: 250px;
+                background-size: 100% 100%;
+                text-align: center;
+                float: right;
+            }
+        }
+        @media screen and (min-width : 1200px) {
+            .main-image {
+                width: 50%;
+                height: 1000px;
+                background-size: 100% 100%;
+                float: left;
+            }
+
+            .subject {
+                width: 50%;
+                height: 500px;
+                float: left;
+            }
+
+            .sub-img1 {
+                width: 25%;
+                height: 500px;
+                background-size: 100% 100%;
+                float: left;
+            }
+
+            .sub-img2 {
+                width: 25%;
+                height: 300px;
+                background-size: 100% 100%;
+                float: left;
+            }
+
+            .sub-img3 {
+                width: 25%;
+                height: 200px;
+                background-size: 100% 100%;
+                text-align: center;
+                float:left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">Welcome to My Homepage~</div>
+    <div class="main-image"></div>
+    <div class="subject">
+        <p><h1>Hello my name is ezen </h1></p>
+        <p><h3>Our interactive learning experience simulates real-life scenarios as if you are learning in an English-speaking country. Join classes 24/7 from anywhere and progress faster with the most motivating method. </h3></p>
+    </div>
+    <div class="sub-img1"></div>
+    <div class="sub-img3">
+        <a href="">VIEW MORE</a>
+    </div>
+    <div class="sub-img2"></div>
+    <div class="footer">
+        <p>고객센터 xxx-xxxx-xxxx</p>
+        <p>사업자명 : 윤찬웅</p>
+    </div>
+</body>
+
+</html>
+<!-- 밑의 그림의 view more -->
+<!--  -->

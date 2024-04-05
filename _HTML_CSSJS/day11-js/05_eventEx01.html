@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이름 입력 : <input type="text" id="name"> <br>
+    국어 점수 : <input type="text" id="kor"> <br>
+    수학 점수 : <input type="text" id="eng"> <br>
+    영어 점수 : <input type="text" id="math"> <br>
+    <button type="button" onclick="scoreCalc()">성적계산</button>
+    <ol id="studentInfo"></ol>
+    
+    <script>
+        
+        const info = document.getElementById('studentInfo');
+
+        let name = document.getElementById('name');
+        let kor = document.getElementById('kor');
+        let eng = document.getElementById('eng');
+        let math = document.getElementById('math');
+
+
+        function scoreCalc(){
+
+            let korVal = Number(kor.value);
+            let engVal = Number(eng.value);
+            let mathVal = Number(math.value);
+            let sum = korVal+engVal+mathVal;
+            let avg = sum/3;
+            
+            let str = `<li>이름 : ${name.value}</li>`;
+            str += `<li>국어 : ${korVal}점</li>`;
+            str += `<li>영어 : ${engVal}점</li>`;
+            str += `<li>수학 : ${mathVal}점</li>`;
+            str += `<li>합계 : ${sum}점</li>`;
+            str += `<li>평균 : ${avg}점</li>`;
+            info.innerHTML =  str;
+
+        }
+        
+
+    </script>
+</body>
+</html>
+<!-- 
+    성적확인
+    이름 : 홍길동
+    국어 : input
+    영어 : input
+    수학 : input
+    성적계산 버튼
+    --------------------------------------------------
+    이름 : 홍길동
+    국어 : 80
+    영어 : 90
+    수학 : 80
+    합계 : OO
+    평균 : OO 표시
+ -->

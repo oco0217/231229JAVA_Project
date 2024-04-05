@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름 입력 : <input type="text" id="name"> <br>
+            국어 점수 : <input type="text" id="kor"> <br>
+            수학 점수 : <input type="text" id="eng"> <br>
+            영어 점수 : <input type="text" id="math"> <br>
+            <button type="button" id="btn">성적계산</button>
+        </fieldset>
+    </form>
+    <h3 id="result"></h3>
+    <!-- 이름, 합계, 평균, 합격여부(60이상이면 pass / fail) -->
+    <!-- 입력한 성적의 점수값이 0~100 사이의 값이 아니면 alert창 띄워 안내 -->
+    <script>
+
+        let result = document.getElementById('result');
+
+        document.getElementById('btn').addEventListener('click', () => {
+
+            let name = document.getElementById('name').value;
+
+            let kor = Number(document.getElementById('kor').value);
+
+            let math = Number(document.getElementById('math').value);
+
+            let eng = Number(document.getElementById('eng').value);
+
+            //             if((kor<0 || 100<kor) || (math<0 || 100<math) || (eng<0 || 100<eng)){
+            //                 alert(`점수가 100을 초과하거나 0미만일 수 없습니다. 
+            // 점수를 다시 입력해주세요.`);
+            //                 result.innerText = ``;
+            //                 return;
+            //             }
+
+            let sum = kor + math + eng;
+
+            let avg = (sum / 3).toFixed(2);
+
+            let pass = avg >= 60 ? 'pass' : 'fail';
+
+            if (check(kor) && check(eng) && check(math)) {
+
+                result.innerHTML =
+                    `이름 : ${name} <br>
+                합계 : ${sum}점 <br>
+                평균 : ${avg}점 <br>
+                합격 여부 : ${pass}`
+
+            }
+
+
+        });
+
+        function check(num) {
+            if (num < 0 || num > 100) {
+                alert('0~100사이의 값을 입력해주세요.');
+                document.getElementById('kor').value = '';
+                document.getElementById('math').value = '';
+                document.getElementById('eng').value = '';
+                document.getElementById('result').innerText = '';
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

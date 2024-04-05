@@ -1,0 +1,6 @@
+banana : 바나나
+apple : 사과
+computer : 컴퓨터
+고양이 : cat
+phone : 핸드폰
+dog : 개

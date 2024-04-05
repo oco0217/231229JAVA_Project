@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            margin-left: 60px;
+        }
+        div{
+            width: 150px;
+            height: 100px;
+            display: flex;
+            line-height: 100px;
+            background-color: gray;
+            border-radius: 3px;
+        }
+        button{
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        button 2개 준비 + / - 
+        + => 값이 1씩 증가
+        - => 값이 1씩 감소 (값이 0이면 더이상 감소X)
+     -->
+    <h1 id="count">0</h1>
+    <div>
+        <button type="button" id="incre">+</button>
+        <button type="button" id="decre">-</button>
+    </div>
+
+    <script>
+
+        let count = Number(document.getElementById('count').innerText);
+
+        let printCount = document.getElementById('count');
+
+        document.getElementById('incre').addEventListener('click', () => {
+            count += 1;
+            printCount.innerText = count;
+        });
+
+        document.getElementById('decre').addEventListener('click', () => {
+            if (count == 0) {
+                return;
+            }
+            count -= 1;
+            printCount.innerText = count;
+        });
+
+
+    </script>
+</body>
+
+</html>

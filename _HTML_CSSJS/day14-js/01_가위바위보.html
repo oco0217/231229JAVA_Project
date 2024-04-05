@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위 바위 보를 10번하여 승률 출력</h1>
+    <button type="button" id="btn">승률출력</button>
+    <h3>
+        10게임의 승률은 <span id="result"></span>%입니다.
+    </h3>
+
+    <script>
+        // 가위 바위 보 게임
+        //com = random / player = random
+        //1 = 가위, 2=바위, 3=보
+        //승률 계산 (승 / (10-무))*100 소수점 2자리까지 표현
+        //콘솔에 com, player 가 뭘 냈는지 출력
+        //콘솔에 플레이어의 승: 무: 패:
+
+        document.getElementById('btn').addEventListener('click', () =>{
+
+            let com = 0;
+            let player = 0;
+            let victory = 0;
+            let tie = 0;
+            let defeat = 0;
+
+            for(let i=0; i<10; i++){
+                com = random();
+                player = random();
+
+                if(com == player){
+                    tie++;
+                }
+                else if((com==1 && player==2) || (com==2 && player==3) || (com==3 && player==1)){
+                    victory++;
+                }else{
+                    defeat++;
+                }
+
+                let comString = `${resultString(com)}`;
+                let playerString = `${resultString(player)}`;
+                console.log(`com : ${comString} / player : ${playerString}`);                
+            }
+            console.log(`승 : ${victory}, 무 : ${tie}, 패 : ${defeat}`);
+
+            document.getElementById('result').innerText = ((victory / (10 - tie)) * 100).toFixed(2);
+
+        });
+
+        function random(){
+            return  Math.floor((Math.random()*3)+1);
+        }
+
+        function resultString(num){
+            switch(num){
+                case 1 :  return '가위';
+                case 2 :  return '바위';
+                case 3 :  return '보';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <style>
+        @keyframes clickmove {
+            from{color: blue;}
+            50%{color: brown; transform: scale(1.2,1.2);}
+            to{color: blue;}
+        }
+        @keyframes degmove {
+            from{rotate: 0deg;}
+            25%{rotate: 5deg;}
+            50%{rotate: 0deg;}
+            75%{rotate: -5deg;}
+            to{rotate: 0deg;}
+        }
+        header>h1{
+            font-size: 70px;
+        }
+        header h3{
+            font-size: 44px;
+            margin: 40px 0;
+            color: aliceblue;
+        }
+        body{
+            background-color: rgb(42, 193, 188);
+            text-align: center;
+            font-family: 'Nanum Brush Script';
+            font-weight: 700;
+        }
+        .bmimg{
+            width: 100px;
+            height: 100px;
+            margin: 70px auto;
+            background-image: url(../image/배달의민족.jpg);
+            background-size: 100% 100%;
+            animation-name: degmove;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        .menu{
+            width: 300px;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 7px;
+        }
+        .menu>div{
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+            background-color: white;
+            float: left;
+        }
+        .menu>.image{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .menu>.text{
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .menu>.image1{
+            background-image: url(../image/다꼬야끼.jpg);
+            background-size: 100% 100%;
+        }
+        .menu>.image2{
+            background-image: url(../image/12645_37416_1350.png);
+            background-size: 100% 100%;
+        }
+        .menu>.image3{
+            background-image: url(../image/돈까스.jpg);
+            background-size: 100% 100%;
+        }
+        .menu>.image4{
+            background-image: url(../image/라멘.jpg);
+            background-size: 100% 100%;
+        }
+        .menu>.text h3{
+            font-size: 30px;
+        }
+        .menu>.text>.pay{
+            color: blue;
+            animation-name: clickmove;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        .fixed{
+            position: fixed;
+            bottom: 50px;
+            right: 60px;
+            width: 200px;
+            height: 300px;
+        }
+        .bi{
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+        .fixed>.box{
+            margin: 5px 0;
+            width: 100%;
+            height: calc(100% / 7);
+        }
+        .fixed>.box a{
+            text-decoration: none;
+            font-size: 50px;
+        }
+        .fixed>.box a:visited{
+            color: white;
+        }
+        .fixed>.box a:hover{
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 박스의 가로 300px  -->
+    <header>
+        <div class="bmimg" id="top"></div>
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </header>
+    <div class="menu" id="m1">
+        <div class="image image1">
+        </div>
+            <div class="text">
+                <h3>엄청난 다코야끼
+                </h3>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+                <p><del>30,000원</del> => 20,000원</p>
+                <p class="pay">바로결제</p>
+        </div>
+    </div>
+    <!--  -->
+    <div class="menu" id="m2">
+        <div class="image image2">
+        </div>
+            <div class="text">
+                <h3>살아있는 스시
+                </h3>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+                <p><del>50,000원</del> => 40,000원</p>
+                <p class="pay">바로결제</p>
+        </div>
+    </div>
+    <!--  -->
+    <div class="menu" id="m3">
+        <div class="image image3">
+        </div>
+            <div class="text">
+                <h3>하나죽어도 모를 돈까스
+                </h3>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+                <p><del>12,000원</del> => 8,000원</p>
+                <p class="pay">바로결제</p>
+        </div>
+    </div>
+    <!--  -->
+    <div class="menu" id="m4">
+        <div class="image image4">
+        </div>
+            <div class="text">
+                <h3>백종원도 극찬한 라멘
+                </h3>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+                <p><del>20,000원</del> => 15,000원</p>
+                <p class="pay">바로결제</p>
+        </div>
+    </div>
+    <div class="fixed">
+        <div class="box">
+            <a href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                  </svg>
+            </a>
+        </div>
+            <div class="box">
+                <a href="#m1">다코야끼</a>
+            </div>
+        <div class="box">
+            <a href="#m2">스시</a>
+        </div>
+        <div class="box">
+            <a href="#m3">돈까스</a>
+        </div>
+        <div class="box">
+            <a href="#m4">라멘</a>
+        </div>
+        <div class="box">
+            <a href="#btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div id="btn"></div>
+</body>
+</html>

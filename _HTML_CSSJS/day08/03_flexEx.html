@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            background-image: url(../image/자연고화질.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .container{
+            display: flex;
+            height: 100px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .container>a{
+            color: white;
+            font-weight: 700;
+            font-size: 35px;
+            line-height: 100px;
+            margin-left: 50px;
+        }
+        ul{
+            padding: 0;
+            margin-right: 150px;
+            line-height: 65px;
+        }
+        li{
+            list-style: none;
+            display: inline;
+            margin-right: 20px;
+        }
+        li>a{
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .center-box{
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .center-box>a{
+            border: 1px solid black;
+            padding: 15px 40px;
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: 700;
+            border: 2px  green solid;
+            border-radius: 10px;
+            position: absolute;
+            transform: translate(-50%, 150%);
+            background-color: darkgrey
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="">DESIGN</a>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">SIGNUP</a></li>
+                <li><a href="">BOARD</a></li>
+            </ul>
+        </div>
+        <div class="center-box">
+            <h1>Welcome to Front-End World</h1>
+            <a href="">Learn More</a>
+        </div>
+</body>
+</html>
+<!-- vh : 브라우저의 모니터 높이만큼  -->

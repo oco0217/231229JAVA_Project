@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        input을 2개 생성 => 과목,점수
+        map에 추가
+        출력 = map을 출력 ul = li 형태로 출력 html : 89
+        결과=> 합계, 평균, 합격여부 (60이상이면 합격) => h3
+     -->
+    과목 : <input type="text" id="subject"><br>
+    점수 : <input type="text" id="score"> <br>
+    <button type="button" id="add">추가</button>
+    <button type="button" id="result">결과</button>
+    <h2 id="addPrint"></h2>
+    <h1 id="resultPrint"></h1>
+
+    <script>
+
+        const studentInfomation = new Map();
+
+        let sum = 0;
+        
+        
+        document.getElementById('add').addEventListener('click', () => {
+            subject = document.getElementById('subject').value;
+            score = Number(document.getElementById('score').value);
+            
+            sum += score;
+            
+            studentInfomation.set(subject, score);
+
+            let result = document.getElementById('addPrint'); 
+
+            let studentInfoPrint = '<ul>';
+                studentInfomation.forEach(function(v,i){
+                    studentInfoPrint += `<li>${i} : ${v}</li>`;
+                });
+                studentInfoPrint += `</ul>`;
+                result.innerHTML += studentInfoPrint;
+                
+            });
+            
+            document.getElementById('result').addEventListener('click',()=>{
+                
+                let avg = sum/studentInfomation.size;
+                let pass = avg>=60 ? '합격' : '불합격';
+                
+                document.getElementById('resultPrint').innerText = 
+            `과목의 점수합계 : ${sum}점 \n 평균 : ${avg}점\n 합격여부 : ${pass}`
+        });
+
+        
+
+    </script>
+</body>
+
+</html>

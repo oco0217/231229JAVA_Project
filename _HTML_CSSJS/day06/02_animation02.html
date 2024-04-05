@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes movement {
+            10%{
+                margin-left: 80%;
+            }
+            50%{
+                margin-left: 80%;
+                margin-top: 25%;
+            }
+            75%{
+                margin-right: 100%;
+                margin-top: 25%;
+            }
+            to{
+                clear: both;
+            }
+        }
+        @keyframes movementEx { 
+            0%{left:10%; background-color: blueviolet;}
+            50%{left:80%; background-color: skyblue;}
+            100%{left:10%; background-color: brown;}           
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 10%;
+            top: 10px;
+            animation-name: movementEx;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+</html>

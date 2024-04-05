@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wapper{
+            background-color: skyblue;
+            text-align: center;
+        }
+        #wapper>h2{
+            margin-top: 100px;
+            font-size: 70px;
+        }
+        #item{
+            font-size: 70px;
+            border: 5px dotted greenyellow;
+            border-radius: 5px;    
+        }
+        .list{
+            font-size: 60px;
+            background-color: yellowgreen;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-radius: 40px;
+        }
+        .list:hover{
+            box-shadow: 2px 2px 2px saddlebrown;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            margin: 0 auto;
+            font-size: 70px;
+            position: relative;
+            background-color: blueviolet;
+            width: 40%;
+        }
+        li:nth-child(even){
+            background-color: chartreuse;
+        }
+        span{
+            position: absolute;
+            right: 25%;
+            color: white;
+        }
+        span:hover{
+            cursor:  pointer;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" class="a b c list" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    <script>
+        let itemListArr = [];
+        document.addEventListener('click',(e)=>{
+            // console.log(e.target.classList);
+            
+            const item = document.getElementById('item');
+            
+            if(e.target.classList.contains('list')){
+                addItem(item);
+                printList();
+                console.log(itemListArr);
+                return;
+            }
+            
+            if(e.target.classList.contains('del')){
+                console.log('테스트 : '+ e.target.id);
+                deleteList(e);
+                printList();
+                console.log(itemListArr);
+                return;
+            }
+
+        });
+
+        function addItem(itemName){ //추가를 눌렀을 경우
+
+            if(itemName.value == ''){
+                alert('준비물을 입력하여 주세요');
+                return;
+            }
+            itemListArr.push(itemName.value);
+            printList();
+                itemName.value = '';
+        }
+
+        function printList(){ //배열에 저장되어있는 값으로 리스트 뿌리기
+            let itemStr = '';
+            itemListArr.forEach(function (v,i){
+                
+                document.getElementById('itemList').innerHTML = '';
+                itemStr += `<li>${v} <span class = "del" id = "${i}del">X</span></li>`;
+            });       
+            document.getElementById('itemList').innerHTML = itemStr;
+            // console.log(itemListArr);
+        }
+
+        function deleteList(e){ //X를 누른 span의 id를 통해 리스트의 index를 구하고 그 인덱스값 삭제
+            let idx = e.target.id;
+            idx = idx.substring(0,idx.indexOf('d'));
+            itemListArr.splice(idx,1);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

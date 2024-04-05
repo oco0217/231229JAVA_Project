@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 400px;
+            height: 400px;
+            border: 3px solid black;
+            padding: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 550px;
+        }
+
+        button:hover {
+            border: 3px solid brown;
+            box-shadow: 1px 1px 1px rgb(27, 26, 26);
+        }
+
+        #rock {
+            background-image: url(가위바위보img/rock.png);
+            background-size: cover;
+            background-position: center;
+
+            /* transform: rotate(90deg); */
+
+            transform: scaleX(-1);
+
+            
+        }
+
+        #scissors {
+            background-image: url(가위바위보img/scissors.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #paper {
+            background-image: url(가위바위보img/paper.png);
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" onclick="playGame('가위')" id="scissors">가위(1)</button>
+    <button type="button" onclick="playGame('바위')" id="rock">바위(2)</button>
+    <button type="button" onclick="playGame('보')" id="paper">보(3)</button>
+    <h1 id="result"></h1>
+
+    <script>
+
+
+        let victory = 0;
+        let tie = 0;
+        let defeat = 0;
+
+
+        function playGame(player) {
+
+            let str = ``;
+
+            let com = computerResult();
+
+            str += `player : ${player} / com : ${com} `;
+
+            if (player == com) {
+                tie++;
+                str += '무승부입니다.';
+            } else if ((player == '가위' && com == '보') || (player == '바위' && com == '가위') || (player == '보' && com == '바위')) {
+                victory++;
+                str += 'player가 이겼습니다.';
+            } else {
+                defeat++;
+                str += ' player가 졌습니다.';
+            }
+            str += `<br>현재 전적 <br> 승: ${victory}/ 무: ${tie}/ 패: ${defeat} <br>승률 : `;
+
+            str += ((victory / (defeat + tie + victory)) * 100).toFixed(2) + '%';
+
+            document.getElementById('result').innerHTML = str;
+        }
+
+
+
+        function comResultString(num) {
+
+            switch (num) {
+                case 1: return '가위';
+                case 2: return '바위';
+                case 3: return '보';
+
+            }
+        }
+
+        function computerResult() {
+            comNum = Math.floor(Math.random() * 3) + 1;
+            computer = comResultString(comNum);
+            return computer;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
+<!-- 승률에 무승부 빼지 말기 -->

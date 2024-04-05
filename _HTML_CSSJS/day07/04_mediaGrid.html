@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        가장좁을 때
+        min-width : 800px
+        min-width : 1200px
+     -->
+     <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            height: 60px;
+            background-color: aqua;
+        }
+        .main-img{
+            height: 300px;
+            background-color: antiquewhite;
+            background-image: url(../image/aircraft.jpg);
+            background-size: 100% 100%;
+        }
+        .subject{
+            height: 350px;
+            background-color: blueviolet;
+        }
+        .content{
+            height: 500px;
+            background-color: burlywood;
+        }
+        .sub{
+            height: 200px;
+            background-color: brown;
+        }
+        .footer{
+            height: 200px;
+            background-color: cadetblue;
+        }
+        @media screen and (min-width : 800px) {
+            .header{
+                height: 60px;
+            }
+            .main-img{
+                height: 500px;
+            }
+            .subject{
+                height: 350px;
+            }
+            .content{
+                width: 50%;
+                float: left;
+                height: 400px;
+            }
+            .sub{
+                width: 50%;
+                float: right;
+                height: 400px;
+            }
+            .footer{
+                height: 200px;
+                clear: both;
+            }
+        }
+        @media screen and (min-width : 1200px) {
+            .subject{
+                width: 50%;
+                height: 600px;
+                float: left;
+            }
+            .sub,.content{
+                width: 50%;
+                height: 300px;
+                float: right;
+            }
+            .footer{
+                height: 200px;
+                clear: both;
+            }
+        }
+     </style>
+</head>
+<body>
+    <div class="header">오신것을 환영합니다.</div>
+    <div class="main-img"></div>
+    <div class="subject">서브젝트</div>
+    <div class="content">콘텐츠</div>
+    <div class="sub">서브</div>
+    <div class="footer">고객센터 xxx-xxxx-xxxx</div>
+</body>
+</html>

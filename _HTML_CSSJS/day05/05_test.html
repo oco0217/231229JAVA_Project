@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .round{
+            width: 400px;
+            height: 600px;
+            border: 1px solid black;
+            margin: auto;
+        }
+        .round>div{
+            margin: 10px 0px 10px 15px;
+        }
+        .top,.bottom{
+            width: 90%;
+            height: 10%;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 60px;
+            font-size: 35px;
+            font-weight: 700;
+        }
+        .mid{
+            width: 90%;
+            height: 70%;
+            border: 3px solid black;
+            position: relative;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            box-shadow: 5px 5px 5px burlywood;
+            position: absolute;
+        }
+        .box1{
+            background-color: brown;
+            top: 50%;
+            left: 50%;
+            transform: translate(-100%,-100%);
+            z-index: 3;
+        }
+        .box2{
+            background-color: green;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 2;
+        }
+        .box3{
+            background-color: blue;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+        <div class="top">텍스트</div>
+        <div class="mid">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+        </div>
+        <div class="bottom">텍스트</div>
+    </div>
+</body>
+</html>

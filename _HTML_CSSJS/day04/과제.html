@@ -1,0 +1,62 @@
+<!-- 좌우 라인을 auto로 주면 자동으로 중간에 생성이 된다 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            width: 350px;
+            height: 70px;
+            border: solid 5px black;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 70px;
+        }
+        .img{
+            background-image: url(../image/aircraft.jpg);
+            width: 600px;
+            height: 500px;
+            background-size: 100% 100%;
+            margin: 40px auto;
+        }
+        .main{
+            width: 350px;
+            height: 80px;
+            margin: 10px auto;
+        }
+        .main div{
+            float: left;
+            margin: 0px 10px;
+            width: calc(350px / 4px);
+            height: 80px;
+            background-color: aqua;
+        }
+        .main ::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .main div a{
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 25px;
+            line-height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+        <h1>Travel</h1>
+        <div class="main">
+            <div><a href="">Home</a></div>
+            <div><a href="">서울</a></div>
+            <div><a href="">도쿄</a></div>
+            <div><a href="">파리</a></div>
+        </div>
+        <div class="img"></div>
+</body>
+
+</html>
